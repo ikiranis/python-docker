@@ -22,8 +22,8 @@ or
 docker run --name python-container -it python
 ```
 
-**python-container**: name of the container
-**python**: name of the image
+- **python-container**: name of the container
+- **python**: name of the image
 
 ##### You have to delete container, if you want to run it again
 
