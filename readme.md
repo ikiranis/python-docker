@@ -3,7 +3,7 @@
 #### Build python image
 
 ```
-docker build . 
+docker build -t python . 
 or
 docker build -t python - < Dockerfile
 or
@@ -36,7 +36,7 @@ docker rm -f docker-container
 ##### Create container and keep it alive. Then, login
 
 ```
-docker run -d -t --name python python
+docker run -d -t --name python-container python
 or
 docker run -d -t -v $(pwd)/code:/home/python --name python-container python
 
