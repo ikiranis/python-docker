@@ -16,14 +16,17 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
     nano \
 	apt-transport-https \
     python3-dev python3-pip \
-    build-essential libssl-dev libffi-dev  \
+    build-essential libssl-dev libffi-dev libbz2-dev liblzma-dev \
     software-properties-common && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN apt-get clean
 
-# Install python libraries
-# RUN pip install numpy
+# Export path for whatshap
+ENV PATH=$HOME/.local/bin:$PATH
+
+# Install whatshap
+RUN pip install whatshap
 
 # Create folder for code
 RUN mkdir /home/python
@@ -31,6 +34,9 @@ WORKDIR /home/python
 
 # Run python shell
 # CMD ["python3"]
+
+# Keep alive container
+ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 
 
