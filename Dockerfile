@@ -10,7 +10,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
 	apt-get install --yes --no-install-recommends \
     # Install utilities
-	tzdata apt-utils curl wget nano apt-transport-https \
+	tzdata apt-utils curl wget nano apt-transport-https git  \
     # Install Python and pip
     python3-dev python3-pip \
     # Install dependencies
