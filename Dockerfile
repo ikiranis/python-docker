@@ -9,13 +9,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Install utilities and Python
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
 	apt-get install --yes --no-install-recommends \
-	tzdata \
-	apt-utils \
-	curl \
-	wget \
-    nano \
-	apt-transport-https \
+    # Install utilities
+	tzdata apt-utils curl wget nano apt-transport-https \
+    # Install Python and pip
     python3-dev python3-pip \
+    # Install dependencies
     build-essential libssl-dev libffi-dev libbz2-dev liblzma-dev \
     software-properties-common && \
 	rm -rf /var/lib/apt/lists/*
@@ -36,7 +34,7 @@ WORKDIR /home/python
 # CMD ["python3"]
 
 # Keep alive container
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+# ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 
 

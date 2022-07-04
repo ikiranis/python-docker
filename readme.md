@@ -4,6 +4,7 @@
 
 ```
 docker build -t python - < Dockerfile
+or
 docker build -t python - < Dockerfile --no-cache
 ```
 
@@ -17,6 +18,7 @@ docker images
 
 ```
 docker run -it -v $(pwd)/code:/home/python --name python-container python
+or
 docker run --name python-container -it python
 ```
 
@@ -33,6 +35,8 @@ docker rm -f docker-container
 
 ```
 docker run -d -t --name python python
+or
 docker run -d -t -v $(pwd)/code:/home/python --name python-container python
+
 docker exec -it python-container /bin/bash
 ```
