@@ -3,6 +3,8 @@
 #### Build python image
 
 ```
+docker build . 
+or
 docker build -t python - < Dockerfile
 or
 docker build -t python - < Dockerfile --no-cache
