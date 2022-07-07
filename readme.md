@@ -3,7 +3,7 @@
 #### Build python image
 
 ```
-docker build -t python . 
+docker build . -t python 
 or
 docker build -t python - < Dockerfile
 or
@@ -19,9 +19,9 @@ docker images
 #### Create container
 
 ```
-docker run -it -v $(pwd)/code:/home/python --name python-container python
+docker run -it --rm -v $(pwd)/code:/home/python --name python-container python
 or
-docker run --name python-container -it python
+docker run -it --rm --name python-container  python
 ```
 
 - **python-container**: name of the container
@@ -31,6 +31,18 @@ docker run --name python-container -it python
 
 ```
 docker rm -f docker-container
+```
+
+##### Running the VCF preprocessor
+
+```
+docker run -it --rm --name python-container python /pharmcat/PharmCAT_VCF_Preprocess.py --input_vcf data/sample.vcf
+```
+
+##### Running PharmCAT
+
+```
+docker run -it --rm --name python-container python java -jar /pharmcat/pharmcat.jar
 ```
 
 ##### Create container and keep it alive. Then, login
