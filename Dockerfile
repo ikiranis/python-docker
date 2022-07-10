@@ -94,8 +94,8 @@ ENV PATH=$HOME/.local/bin:$PATH
 RUN pip install whatshap
 
 # Create folder for code
-RUN mkdir /home/python
-WORKDIR /home/python
+#RUN mkdir /home/python
+#WORKDIR /home/python
 
 # Run python shell
 # CMD ["python3"]

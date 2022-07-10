@@ -42,7 +42,10 @@ docker run -it --rm --name python-container python /pharmcat/PharmCAT_VCF_Prepro
 ##### Running PharmCAT
 
 ```
-docker run -it --rm --name python-container python java -jar /pharmcat/pharmcat.jar
+docker run -it --rm -v $(pwd)/data:/pharmcat/data --name python-container python ./PharmCAT_VCF_Preprocess.py --input_vcf data/sample.vcf
+
+docker run -it --rm -v $(pwd)/data:/pharmcat/data --name python-container python ./pharmcat -vcf data/pharmcat_ready_vcf.SAMPLE1.vcf
+
 ```
 
 ##### Create container and keep it alive. Then, login
