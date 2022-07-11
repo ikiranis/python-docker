@@ -1,5 +1,8 @@
 ## Python docker container
 
+- pharmcat: https://pharmcat.org/technical-docs/docker
+- whatshap: https://pypi.org/project/whatshap/
+
 #### Build python image
 
 ```
