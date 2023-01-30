@@ -17,6 +17,22 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
     build-essential libssl-dev libffi-dev libbz2-dev liblzma-dev libncurses5-dev \
     software-properties-common
 
+# install miniconda
+
+ENV PATH="~/.conda/bin:$PATH"
+ARG PATH="~/.conda/bin:$PATH"
+
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir ~/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -bup ~/.conda \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+
+RUN ~/.conda/bin/conda --version
+
+RUN ~/.conda/bin/conda install -c bioconda -y vcftools
+
+
 # Install Pharmcat
 # based on https://github.com/PharmGKB/PharmCAT/blob/development/Dockerfile
 
